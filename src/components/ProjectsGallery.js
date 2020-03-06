@@ -3,22 +3,21 @@ import styled from  'styled-components'
 
 import ProjectCard from './ProjectGallery/ProjectCard'
 import projectDetails from './projectDetails'
+import SortMenu from './ProjectGallery/SortMenu'
 
 export default function ProjectsGallery() {
   
   const projects = projectDetails();
-  
+
   const GalleryWrapper = styled.div`
     overflow: hidden;
     padding-top: 15px;
     min-height: 95vh;
     display: grid;
-    grid-template-columns: 0.15fr 6fr 3fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1.5% auto 45%;
+    grid-template-rows: auto;
     grid-template-areas:
-    " bar cards cards cards cards cards cards . . ."
-    " bar cards cards cards cards cards cards . . ."
-    " bar cards cards cards cards cards cards . . .";
+    "bar cards menu";
   `
   const GalleryVerticalBar = styled.div`
     width: 5px;
@@ -29,6 +28,11 @@ export default function ProjectsGallery() {
 
   const CardsWrapper = styled.div`
     grid-area: cards;
+  `
+
+  const MenuWrapper = styled.div`
+    align-self: center;
+    grid-area: menu;
   `
   
   return (
@@ -41,6 +45,9 @@ export default function ProjectsGallery() {
           )
         })}
      </CardsWrapper>
+     <MenuWrapper>
+       <SortMenu detail={projects}/>
+     </MenuWrapper>
     </GalleryWrapper>
   )
 }

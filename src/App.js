@@ -42,7 +42,7 @@ export default function App() {
  if(isMobile === true){
   return(
       <AppFlex>
-        <Intro />
+        <Intro isMobile={isMobile}/>
         <ProjectsGalleryMobile />
       </AppFlex>
     )
@@ -50,7 +50,7 @@ export default function App() {
    return(
      <AppGrid>
        <IntroWrapper>
-          <Intro />
+          <Intro isMobile={isMobile}/>
        </IntroWrapper>
        <ProjectsGalleryWrapper>
          <ProjectsGallery />
