@@ -6,7 +6,7 @@ export default function ProjectCard(details) {
   const ProjectCardWrapper = styled.div`
     background-color: #43565D;
     border-radius: 5px 5px 5px 5px;
-    width: 60%;
+    width: 90%;
     margin: 10px;
     min-height: 15%;
     position: relative;
@@ -14,6 +14,7 @@ export default function ProjectCard(details) {
   `
   const ProjectName = styled.h3`
     font-family: 'Alfa Slab One', serif ;
+    color: #EADEDA;
     letter-spacing: 1.5px;
     padding: 5px 5px 0px 5px;
     text-align: right;
@@ -30,11 +31,10 @@ export default function ProjectCard(details) {
     text-align: right;
     padding-right: 10px;
   `
-  const ProjectDescription = styled.h3`
+  const ProjectDescription = styled.h2`
     padding: 10px;
   `
   const ProjectIconWrapper = styled.div`
-    /* background-color: lightpink; */
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
