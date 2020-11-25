@@ -45,9 +45,9 @@ export default function ProjectsGallery() {
           )
         })}
      </CardsWrapper>
-     <MenuWrapper>
+     {/* <MenuWrapper>
        <SortMenu detail={projects}/>
-     </MenuWrapper>
+     </MenuWrapper> */}
     </GalleryWrapper>
   )
 }

@@ -3,14 +3,13 @@ import styled from 'styled-components'
 
 import IntroHeading from './Intro/IntroHeading'
 
+const IntroWrapper = styled.div`
+min-height : ${({minHeight}) => minHeight};
+`
 export default function Intro({isMobile}) {
   
-  const IntroWrapper = styled.div`
-    /* background-color: lightslategray; */
-    min-height : ${() => (isMobile ? '0vh' : '50vh')};
-  `
   return (
-    <IntroWrapper>
+    <IntroWrapper minHeight={(isMobile ? '0vh' : '50vh')}>
       <IntroHeading />
     </IntroWrapper>
   )
