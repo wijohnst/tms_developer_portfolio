@@ -1,15 +1,11 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import styled from  'styled-components'
 
 import ProjectCard from './ProjectGallery/ProjectCard'
 import projectDetails from './projectDetails'
-import SortMenu from './ProjectGallery/SortMenu'
+// import SortMenu from './ProjectGallery/SortMenu'
 
-export default function ProjectsGallery() {
-  
-  const projects = projectDetails();
-
-  const GalleryWrapper = styled.div`
+const GalleryWrapper = styled.div`
     overflow: hidden;
     padding-top: 15px;
     min-height: 95vh;
@@ -30,10 +26,15 @@ export default function ProjectsGallery() {
     grid-area: cards;
   `
 
-  const MenuWrapper = styled.div`
-    align-self: center;
-    grid-area: menu;
-  `
+  // const MenuWrapper = styled.div`
+  //   align-self: center;
+  //   grid-area: menu;
+  // `
+  
+export default function ProjectsGallery() {
+  
+  const projects = projectDetails();
+
   
   return (
     <GalleryWrapper>
