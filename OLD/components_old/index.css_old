@@ -1,0 +1,15 @@
+body {
+  /* margin: 0; */
+  font-family: 'Alfa Slab One', serif ;
+  font-family: 'Spartan', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html{
+  background-color: #1B4353;
+  color: white;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
