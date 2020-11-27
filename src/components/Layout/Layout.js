@@ -5,6 +5,7 @@ import { ViewContext } from '../../Store/ViewContext'
 
 import useDevStyle from '../../Utilities/Hooks/useDevStyle'
 
+import { Boxes } from './Elements/Patterns'
 import Header from './Header/Header'
 
 const ComponentWrapper = styled.section`
@@ -15,6 +16,7 @@ const Head = styled.section``
 const ViewArea = styled.section`
     flex-grow: 1;
     overflow: scroll;
+    padding: .25rem;
 `
 const DevButton = styled.button`
     max-width: fit-content;
@@ -29,10 +31,9 @@ export default function Layout(props) {
     }
 
     const viewStyle = useDevStyle(viewData.isDev,"dashed","orange");
-
-
+    
     return (
-        <ComponentWrapper>
+        <ComponentWrapper style={(viewData.isDev ? Boxes : {})}>
             <Head>
                 <Header />
             </Head>

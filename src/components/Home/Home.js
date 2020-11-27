@@ -3,7 +3,11 @@ import styled from 'styled-components'
 
 import { ViewContext } from '../../Store/ViewContext'
 
+import useMedia from '../../Utilities/Hooks/useMedia'
+import getDevice from '../../Utilities/getDevice'
+
 import will_wink from './will_wink.png'
+import tools from './tools.png'
 import CircleImage from '../Layout/Elements/CircleImage'
 import Content from '../Layout/Elements/Content'
 import TextContent from '../Layout/Elements/TextContent'
@@ -21,11 +25,11 @@ export default function Home() {
 
     const { viewData } = useContext(ViewContext);
 
-    // const isMobile = useMedia(
-    //     [getDevice('browser'),getDevice('tablet'),getDevice('mobile')],
-    //     [false,false,true],
-    //     false
-    // )
+    const isMobile = useMedia(
+        [getDevice('browser'),getDevice('tablet'),getDevice('mobile')],
+        [false,false,true],
+        false
+    )
 
     return (
         <ComponentWrapper ref={parentRef}>
@@ -34,14 +38,33 @@ export default function Home() {
                     <CircleImage 
                         source={will_wink} 
                         parent={parentRef}
-                        sizeDivisor={.25}
+                        sizeDivisor={(isMobile ? .25 : .5)}
                         alt={'Will winking.'}
                     />
-                    <TextContent isDev={viewData.isDev}>
+                    <TextContent 
+                        isDev={viewData.isDev}
+                        contentSide={"left"}
+                    >
                         <HeroText>
                             I'm Will and I make simple, scalable web applications.
                         </HeroText>
                     </TextContent>
+                </div>
+                <div style={{display: "flex", alignItems: "center", justifyContent: "flex-end"}}>
+                    <TextContent
+                        isDev={viewData.isDev}
+                        contentSide={"right"}
+                    >
+                        <HeroText>
+                            These are some of my favorite tools.
+                        </HeroText>
+                    </TextContent>
+                    <CircleImage 
+                        source={tools}
+                        parent={parentRef}
+                        sizeDivisor={(isMobile ? .25 : .5)}
+                        alt={'Toolbox.'}
+                    />
                 </div>
             </Content>
         </ComponentWrapper>

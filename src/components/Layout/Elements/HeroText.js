@@ -8,6 +8,7 @@ import getDevice from '../../../Utilities/getDevice'
 
 const ComponentWrapper = styled.section`
     font-size: ${({fontSize}) => fontSize};
+    margin: .5rem;
 `
 
 export default function HeroText(props) {
@@ -19,7 +20,7 @@ export default function HeroText(props) {
     const compStyle = useDevStyle(viewData.isDev,"dotted thin", "coral");
     const fontSize = useMedia(
         [getDevice('browser'),getDevice('tablet'),getDevice('mobile')],
-        ["2rem","1.75rem","1.25rem"],
+        ["2rem","1.75rem","1rem"],
         "2rem"
     )
 

@@ -9,7 +9,6 @@ import getDevice from '../../../Utilities/getDevice'
 
 const ComponentWrapper = styled.section`
     flex-grow: 1;
-    padding: .25rem;
     display: flex;
     justify-content: ${({justifyContent}) => justifyContent};
     align-items: center;
@@ -18,11 +17,14 @@ const ComponentWrapper = styled.section`
 const Options = styled.section`
     display: flex;
     align-items: center;
+    margin: .5rem;
+    margin-right: 1rem;
+    padding: .25rem;
 `
 const Option = styled.span`
     font-size: ${({fontSize}) => fontSize};
     color: ${({color}) => color};
-    margin: 1rem;
+    margin: .5rem;
     &:hover{
         cursor: pointer;
     }
@@ -34,8 +36,8 @@ export default function Nav() {
     const { viewData ,setViewData } = useContext(ViewContext);
 
     const wrapperStyle = useDevStyle(viewData.isDev, "dashed","green");
-    const optStyle = useDevStyle(viewData.isDev,"dashed","blue");
-
+    const optStyle = useDevStyle(viewData.isDev,"dotted thin","blue");
+    
     const options = ['Home','Components','Projects'];
 
     const isMobile = useMedia(
@@ -63,11 +65,17 @@ export default function Nav() {
                             key={`NavOption-${index}`}
                             role="button"
                             onClick={() => setViewData({view : option})}
-                            color={isActive() ? "red" : "white"}
-                            fontSize={isActive() ? "1.5rem" : "1.25rem"}
-                            transition={isMobile ? "none" : "font-size ease-in .4s"}
+                            color={isActive() ? "white" : () =>{
+                                if(viewData.isDev){
+                                    return "#808080"
+                                }else{
+                                    return "black"
+                                }
+                            }}
+                            fontSize={isActive() ? "1.25rem" : "1rem"}
+                            transition={isMobile ? "none" : "font-size .4s"}
                         >
-                            {option}
+                            {isActive() ? option.toUpperCase() : option.toLowerCase()}
                         </Option>
                     )
                 }

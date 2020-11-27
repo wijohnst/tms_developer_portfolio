@@ -8,6 +8,8 @@ import useDevStyle from '../../../Utilities/Hooks/useDevStyle'
 import useMedia from "../../../Utilities/Hooks/useMedia"
 import getDevice from "../../../Utilities/getDevice"
 
+import Logo from './Logo.svg'
+
 const ComponentWrapper = styled.section`
     padding: .25rem;
     display: flex;
@@ -15,7 +17,7 @@ const ComponentWrapper = styled.section`
     align-items: center;
 `
 
-const Logo = styled.div`
+const LogoWrapper = styled.div`
     height: 100px;
     min-width: 200px;
     display: flex;
@@ -23,7 +25,7 @@ const Logo = styled.div`
     align-items: center;
     flex-grow: 1;
     padding: .25rem;
-    margin: .15rem;
+    margin: .5rem;
 `
 const LogoText = styled.div`
     height: 100px;
@@ -31,7 +33,7 @@ const LogoText = styled.div`
     justify-content: center;
     align-items: center;
     padding: .25rem;
-    margin: .15rem;
+    margin: .5rem;
     font-size: 1.5rem;
     font-weight: 700;
 `
@@ -51,9 +53,9 @@ export default function HeaderLogo() {
     )
     return (
         <ComponentWrapper style={styleComponent}>
-            <Logo style={styleImage}>
-                Image
-            </Logo>
+            <LogoWrapper style={styleImage}>
+                <img src={Logo} />
+            </LogoWrapper>
             <LogoText style={styleText} display={isMobile ? "none" : "flex"}>
                willjohnston.tech 
             </LogoText>

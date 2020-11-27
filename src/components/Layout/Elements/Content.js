@@ -9,6 +9,8 @@ const ComponentWrapper = styled.div`
     height: 100%;
     width: 100%;
     margin: .5rem;
+    margin-right: .75rem;
+    padding: .25rem;
     /* display: flex; */
 `
 
