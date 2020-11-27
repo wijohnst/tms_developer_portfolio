@@ -1,62 +1,16 @@
-import React, { useState, useEffect } from 'react'
-import styled from 'styled-components'
+import React, { useContext } from 'react'
+import { ViewProvider } from './Store/ViewContext'
 
-import Intro from './components/Intro'
-import ProjectsGalleryMobile from './components/ProjectsGalleryMobile'
-import ProjectsGallery from './components/ProjectsGallery'
-const AppGrid = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-  `
+import Layout from './components/Layout/Layout'
+import ViewController from './components/View/ViewController'
 
-  const IntroWrapper = styled.div`
-    max-height: 50vh;
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas:
-    " . "
-    " intro ";
-  `
-  const ProjectsGalleryWrapper = styled.div`
-  `
-  const AppFlex = styled.div`
-    /* background-color: lightgreen; */
-    display: flex;
-    flex-direction: column;
-  `
 export default function App() {
-  
-  // const [innerWidth, setInnerWidth] = useState(window.innerWidth);
-  // const [innerHeight, setInnerHeight] = useState(window.innerHeight);
-  const [isMobile, setIsMobile] = useState(true);
 
-  useEffect(() => {
-    if(window.innerWidth < 500){
-      setIsMobile(true);
-    }else{
-      setIsMobile(false);
-    }
-  },[]);
-
-  
- if(isMobile === true){
-  return(
-      <AppFlex>
-        <Intro isMobile={isMobile}/>
-        <ProjectsGalleryMobile />
-      </AppFlex>
+    return (
+        <ViewProvider>
+            <Layout style={{height : '100vh', width : '110vw'}}>
+                <ViewController />
+            </Layout>
+        </ViewProvider>
     )
- }else{
-   return(
-     <AppGrid>
-       <IntroWrapper>
-          <Intro isMobile={isMobile}/>
-       </IntroWrapper>
-       <ProjectsGalleryWrapper>
-         <ProjectsGallery />
-       </ProjectsGalleryWrapper>
-     </AppGrid>
-   )
- }
-  
 }

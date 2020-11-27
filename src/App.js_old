@@ -1,0 +1,43 @@
+import React, { useState, useEffect } from 'react'
+import styled from 'styled-components'
+
+import Intro from './components_old/Intro'
+import ProjectsGalleryMobile from './components_old/ProjectsGalleryMobile'
+import ProjectsGallery from './components_old/ProjectsGallery'
+
+const AppGrid = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  `
+const AppFlex = styled.div`
+    display: flex;
+    flex-direction: column;
+  `
+export default function App() {
+  
+  // const [isMobile, setIsMobile] = useState(true);
+
+  // useEffect(() => {
+  //   if(window.innerWidth < 500){
+  //     setIsMobile(true);
+  //   }else{
+  //     setIsMobile(false);
+  //   }
+  // },[]);
+
+//  if(isMobile === true){
+//   return(
+//       <AppFlex>
+//         <Intro isMobile={isMobile}/>
+//         <ProjectsGalleryMobile />
+//       </AppFlex>
+//     )
+
+   return(
+     <AppFlex>
+        <Intro/>
+      <ProjectsGallery />
+     </AppFlex>
+   )
+  
+}

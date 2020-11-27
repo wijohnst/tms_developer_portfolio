@@ -1,12 +1,9 @@
-body {
-  /* margin: 0; */
-  font-family: 'Alfa Slab One', serif ;
-  font-family: 'Spartan', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 html{
-  background-color: #1B4353;
-  color: white;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box; 
+    font-size: 12pt;
+    font-family: 'Roboto', sans-serif;
+    background-color: black;
+    color: white;
 }
