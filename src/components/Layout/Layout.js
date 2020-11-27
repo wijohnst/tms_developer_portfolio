@@ -1,33 +1,45 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
+
+import { ViewContext } from '../../Store/ViewContext'
+
+import useDevStyle from '../../Utilities/Hooks/useDevStyle'
 
 import Header from './Header/Header'
 
 const ComponentWrapper = styled.section`
     display: flex;
     flex-direction: column;
-    height: 100vh;
 `
-const Head = styled.section`
-    background-color: lightpink;
-`
+const Head = styled.section``
 const ViewArea = styled.section`
-    background-color: lightblue;
-    border: dashed orange;
     flex-grow: 1;
-    margin-bottom:20px;
+    overflow: scroll;
 `
-
-
+const DevButton = styled.button`
+    max-width: fit-content;
+    margin-top: 1rem;
+`
 export default function Layout(props) {
+
+    const { viewData, setViewData } = useContext(ViewContext);
+
+    function toggleIsDev(){
+        setViewData({isDev : !viewData.isDev});
+    }
+
+    const viewStyle = useDevStyle(viewData.isDev,"dashed","orange");
+
+
     return (
         <ComponentWrapper>
             <Head>
                 <Header />
             </Head>
-            <ViewArea>
+            <ViewArea style={viewStyle}>
                 {props.children}
             </ViewArea>
+            <DevButton onClick={() => toggleIsDev()}>Toggle Dev Mode</DevButton>
         </ComponentWrapper>
     ) 
 }

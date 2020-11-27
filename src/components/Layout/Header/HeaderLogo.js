@@ -1,14 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
+
+import { ViewContext } from '../../../Store/ViewContext'
+
+import useDevStyle from '../../../Utilities/Hooks/useDevStyle'
 
 import useMedia from "../../../Utilities/Hooks/useMedia"
 import getDevice from "../../../Utilities/getDevice"
 
 const ComponentWrapper = styled.section`
-
-    border: dashed blue;
     padding: .25rem;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,25 +17,32 @@ const ComponentWrapper = styled.section`
 
 const Logo = styled.div`
     height: 100px;
+    min-width: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-grow: 1;
-    border: dashed gray;
     padding: .25rem;
     margin: .15rem;
 `
 const LogoText = styled.div`
-    border: dashed orange;
     height: 100px;
     display: ${({display}) => display};
     justify-content: center;
     align-items: center;
     padding: .25rem;
     margin: .15rem;
+    font-size: 1.5rem;
+    font-weight: 700;
 `
 
 export default function HeaderLogo() {
+
+    const { viewData } = useContext(ViewContext);
+
+    const styleComponent = useDevStyle(viewData.isDev,"dashed","blue");
+    const styleImage = useDevStyle(viewData.isDev,"dotted thin","grey");
+    const styleText = useDevStyle(viewData.isDev,"dotted thin","orange");
 
     const isMobile = useMedia(
         [getDevice('browser'),getDevice('tablet'),getDevice('mobile')],
@@ -42,12 +50,12 @@ export default function HeaderLogo() {
         false
     )
     return (
-        <ComponentWrapper>
-            <Logo>
-                Image : Height = 100px;
+        <ComponentWrapper style={styleComponent}>
+            <Logo style={styleImage}>
+                Image
             </Logo>
-            <LogoText display={isMobile ? "none" : "flex"}>
-                Logo Text
+            <LogoText style={styleText} display={isMobile ? "none" : "flex"}>
+               willjohnston.tech 
             </LogoText>
         </ComponentWrapper>
     )

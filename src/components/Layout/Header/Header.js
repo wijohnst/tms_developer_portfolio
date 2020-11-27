@@ -1,20 +1,25 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
+
+import { ViewContext } from '../../../Store/ViewContext'
 
 import useMedia from '../../../Utilities/Hooks/useMedia'
 import getDevice from '../../../Utilities/getDevice'
 
 import HeaderLogo from './HeaderLogo'
-import HeaderText from './HeaderText'
+import MobileHeaderText from './MobileHeaderText'
 import Nav from './Nav'
 
 const ComponentWrapper = styled.section`
     display: flex;
-    flex-direction: ${({flexDirection}) => flexDirection}; 
+    flex-direction: ${({flexDirection}) => flexDirection};
+    background-color: ${({backgroundColor}) => backgroundColor}; 
 `
 
 export default function Header() {
     
+    const { viewData } = useContext(ViewContext);
+
     const flexDir = useMedia(
         [getDevice('browser'),getDevice('tablet'),getDevice('mobile')],
         ['row','row','column'],
@@ -22,9 +27,12 @@ export default function Header() {
         );
 
     return (
-        <ComponentWrapper flexDirection={flexDir}>
+        <ComponentWrapper 
+            flexDirection={flexDir}
+            backgroundColor={viewData.isDev ? "black" : "#808080"}
+        >
             <HeaderLogo />
-            <HeaderText />
+            <MobileHeaderText />
             <Nav />
         </ComponentWrapper>
     )

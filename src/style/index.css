@@ -4,4 +4,6 @@ html{
     box-sizing: border-box; 
     font-size: 12pt;
     font-family: 'Roboto', sans-serif;
+    background-color: black;
+    color: white;
 }

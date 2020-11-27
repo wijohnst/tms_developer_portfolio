@@ -9,7 +9,8 @@ let reducer = (viewData, newViewData) =>{
 }
 
 const initialState = {
-    view : 'Start'
+    isDev : true,
+    view : 'Home'
 }
 
 const ViewContext = React.createContext();

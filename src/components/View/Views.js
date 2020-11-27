@@ -1,13 +1,15 @@
 import React from 'react'
 
-import Start from './Start'
-import Next from './Next'
+import Home from '../Home/Home'
+import ComponentGallery from '../ComponentGallery/ComponentGallery'
+import Projects from '../Projects/Projects'
 
 export default function Views(target){
 
     const Views = {
-        "Start" : <Start />,
-        "Next" : <Next />
+        Home: <Home />,
+        Components : <ComponentGallery />,
+        Projects : <Projects />
     }
 
     return Views[target];
