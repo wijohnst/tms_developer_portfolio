@@ -12,6 +12,7 @@ import CircleImage from '../Layout/Elements/CircleImage'
 import Content from '../Layout/Elements/Content'
 import TextContent from '../Layout/Elements/TextContent'
 import HeroText from '../Layout/Elements/HeroText'
+import Tools from './Tools'
 
 const ComponentWrapper = styled.section`
     height: 100%;
@@ -30,6 +31,11 @@ export default function Home() {
         [false,false,true],
         false
     )
+    const divisor = useMedia(
+        [getDevice('browser'),getDevice('tablet'),getDevice('mobile')],
+        [.5,.35,.25],
+        .5
+    )
 
     return (
         <ComponentWrapper ref={parentRef}>
@@ -38,7 +44,7 @@ export default function Home() {
                     <CircleImage 
                         source={will_wink} 
                         parent={parentRef}
-                        sizeDivisor={(isMobile ? .25 : .5)}
+                        sizeDivisor={divisor}
                         alt={'Will winking.'}
                     />
                     <TextContent 
@@ -62,12 +68,12 @@ export default function Home() {
                     <CircleImage 
                         source={tools}
                         parent={parentRef}
-                        sizeDivisor={(isMobile ? .25 : .5)}
+                        sizeDivisor={divisor}
                         alt={'Toolbox.'}
                     />
                 </div>
                 <div style={{display: "flex", alignItems:"center", justifyContent: "center"}}>
-
+                    <Tools />
                 </div>
             </Content>
         </ComponentWrapper>
