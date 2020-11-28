@@ -62,7 +62,7 @@ export default function Home() {
                         contentSide={"right"}
                     >
                         <HeroText>
-                            These are some of my favorite tools.
+                            These are some of my favorite<br />tools.
                         </HeroText>
                     </TextContent>
                     <CircleImage 

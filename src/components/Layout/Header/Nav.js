@@ -78,9 +78,9 @@ export default function Nav() {
                             onClick={() => setViewData({view : option})}
                             color={isActive() ? "white" : () =>{
                                 if(viewData.isDev){
-                                    return "#808080"
+                                    return "white"
                                 }else{
-                                    return "black"
+                                    return "#808080"
                                 }
                             }}
                             fontSize={isActive() ? "1.25rem" : "1rem"}
