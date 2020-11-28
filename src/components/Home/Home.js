@@ -30,6 +30,11 @@ export default function Home() {
         [false,false,true],
         false
     )
+    const divisor = useMedia(
+        [getDevice('browser'),getDevice('tablet'),getDevice('mobile')],
+        [.5,.35,.25],
+        .5
+    )
 
     return (
         <ComponentWrapper ref={parentRef}>
@@ -38,7 +43,7 @@ export default function Home() {
                     <CircleImage 
                         source={will_wink} 
                         parent={parentRef}
-                        sizeDivisor={(isMobile ? .25 : .5)}
+                        sizeDivisor={divisor}
                         alt={'Will winking.'}
                     />
                     <TextContent 
@@ -62,7 +67,7 @@ export default function Home() {
                     <CircleImage 
                         source={tools}
                         parent={parentRef}
-                        sizeDivisor={(isMobile ? .25 : .5)}
+                        sizeDivisor={divisor}
                         alt={'Toolbox.'}
                     />
                 </div>
