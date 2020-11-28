@@ -12,6 +12,7 @@ import CircleImage from '../Layout/Elements/CircleImage'
 import Content from '../Layout/Elements/Content'
 import TextContent from '../Layout/Elements/TextContent'
 import HeroText from '../Layout/Elements/HeroText'
+import Tools from './Tools'
 
 const ComponentWrapper = styled.section`
     height: 100%;
@@ -72,7 +73,7 @@ export default function Home() {
                     />
                 </div>
                 <div style={{display: "flex", alignItems:"center", justifyContent: "center"}}>
-
+                    <Tools />
                 </div>
             </Content>
         </ComponentWrapper>
