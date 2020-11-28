@@ -19,6 +19,17 @@ const ComponentWrapper = styled.section`
     min-height: 400px;
     display: flex;
 `
+const BioWrapper = styled.section``
+const FavsWrapper = styled.section`
+    display: flex;
+    align-items: center;
+`
+const ToolsWrapper = styled.section`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+`
 
 export default function Home() {
 
@@ -37,16 +48,15 @@ export default function Home() {
         .5
     )
 
+    const browserPosition = {
+        position: 'relative',
+        bottom: '100pt'
+    }
+
     return (
         <ComponentWrapper ref={parentRef}>
             <Content isDev={viewData.isDev}>
-                <div style={{display: "flex", alignItems: "center"}}>
-                    <CircleImage 
-                        source={will_wink} 
-                        parent={parentRef}
-                        sizeDivisor={divisor}
-                        alt={'Will winking.'}
-                    />
+                <BioWrapper style={{display: "flex", alignItems: "center"}}>
                     <TextContent 
                         isDev={viewData.isDev}
                         contentSide={"left"}
@@ -55,26 +65,20 @@ export default function Home() {
                             I'm Will and I make simple, scalable web applications.
                         </HeroText>
                     </TextContent>
-                </div>
-                <div style={{display: "flex", alignItems: "center", justifyContent: "flex-end"}}>
+                </BioWrapper>
+                <FavsWrapper>
                     <TextContent
                         isDev={viewData.isDev}
-                        contentSide={"right"}
+                        contentSide={"left"}
                     >
                         <HeroText>
-                            These are some of my favorite<br />tools.
+                            These are some of my favorite tools.
                         </HeroText>
                     </TextContent>
-                    <CircleImage 
-                        source={tools}
-                        parent={parentRef}
-                        sizeDivisor={divisor}
-                        alt={'Toolbox.'}
-                    />
-                </div>
-                <div style={{display: "flex", alignItems:"center", justifyContent: "center"}}>
+                </FavsWrapper>
+                <ToolsWrapper style={{display: "flex", alignItems:"center", justifyContent: "center"}}>
                     <Tools />
-                </div>
+                </ToolsWrapper>
             </Content>
         </ComponentWrapper>
     )

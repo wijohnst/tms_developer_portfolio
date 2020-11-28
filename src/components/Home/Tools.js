@@ -19,10 +19,10 @@ const ComponentWrapper = styled.section`
     min-height: ${({minHeight}) => minHeight};
     width: 100%;  
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
-    margin-left: ${({marginLeft}) => marginLeft};
+    padding: 1rem;
 `
+const ImgWrapper = styled.section``
 
 export default function Tools() {
 
@@ -42,36 +42,43 @@ export default function Tools() {
             style={compStyle} 
             ref={parentRef}
             minHeight={(isMobile ? '200px' : '300px')}
-            marginLeft={(isMobile ? '1.25rem' : '4rem')}
-        >
-            <CircleImage
-                source={react_logo}
-                parent={parentRef}
-                sizeDivisor={(isMobile ? .25 : .5)}
-                alt={'React Logo.'}
-                backgroundColor={'black'}
-            />
-            <CircleImage 
-                source={node_logo}
-                parent={parentRef}
-                sizeDivisor={(isMobile ? .25 : .5)}
-                alt={'Node Logo.'}
-                backgroundColor={'black'}
-            />
-            <CircleImage
-                source={figma_logo}
-                parent={parentRef}
-                sizeDivisor={(isMobile ? .25 : .5)}
-                alt={'Figma Logo.'}
-                backgroundColor={'black'}
-            />
-            <CircleImage 
-                source={vs_logo}
-                parent={parentRef}
-                sizeDivisor={(isMobile ? .25 : .5)}
-                alt={'Visual Studio Code Logo.'}
-                backgroundColor={'black'}
-            />
+        >   
+            <ImgWrapper>
+                <CircleImage
+                    source={react_logo}
+                    parent={parentRef}
+                    sizeDivisor={(isMobile ? .25 : .5)}
+                    alt={'React Logo.'}
+                    backgroundColor={'black'}
+                />
+            </ImgWrapper>
+            <ImgWrapper>
+                <CircleImage 
+                    source={node_logo}
+                    parent={parentRef}
+                    sizeDivisor={(isMobile ? .25 : .5)}
+                    alt={'Node Logo.'}
+                    backgroundColor={'black'}
+                />
+            </ImgWrapper>
+            <ImgWrapper>
+                <CircleImage
+                    source={figma_logo}
+                    parent={parentRef}
+                    sizeDivisor={(isMobile ? .25 : .5)}
+                    alt={'Figma Logo.'}
+                    backgroundColor={'black'}
+                />
+            </ImgWrapper>
+            <ImgWrapper>
+                <CircleImage 
+                    source={vs_logo}
+                    parent={parentRef}
+                    sizeDivisor={(isMobile ? .25 : .5)}
+                    alt={'Visual Studio Code Logo.'}
+                    backgroundColor={'black'}
+                />
+            </ImgWrapper>   
         </ComponentWrapper>
     )
 }
