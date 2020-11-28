@@ -14,8 +14,8 @@ export const PolkaDot = {
 }
 
 export const Boxes = {
-    backgroundColor: '#000000',
+    backgroundColor: '#909090',
     opacity: '1',
-    backgroundImage:  'linear-gradient(#808080 1.3px, transparent 1.3px), linear-gradient(to right, #808080 1.3px, #000000 1.3px)',
+    backgroundImage:  'linear-gradient(#909090 1.3px, transparent 1.3px), linear-gradient(to right, #909090 1.3px, #000000 1.3px)',
     backgroundSize: '12pt 12pt'
 }

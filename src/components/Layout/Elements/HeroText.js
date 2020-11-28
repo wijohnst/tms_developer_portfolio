@@ -9,6 +9,7 @@ import getDevice from '../../../Utilities/getDevice'
 const ComponentWrapper = styled.section`
     font-size: ${({fontSize}) => fontSize};
     margin: .5rem;
+    font-weight: 300;
 `
 
 export default function HeroText(props) {

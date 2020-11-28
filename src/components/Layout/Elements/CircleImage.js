@@ -26,7 +26,7 @@ export default function CircleImage(props) {
     const [imgHeight, setImageHeight] = useState('0px');
 
     useEffect(() =>{
-        if(parent && parent.current.getBoundingClientRect().height >= 100 && parent.current.getBoundingClientRect().width >= 100){
+        if(parent && parent.current.getBoundingClientRect().height >= 100 && parent.current.getBoundingClientRect().width >= 200){
             setImageHeight(parent.current.getBoundingClientRect().height * sizeDivisor);            
         }else{
             console.log("ERROR: Parent is too small to display <CircleImage />.")
