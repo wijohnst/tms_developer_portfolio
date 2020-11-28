@@ -20,7 +20,7 @@ const ComponentWrapper = styled.section`
     width: 100%;  
     display: flex;
     justify-content: space-between;
-    padding: 1rem;
+    padding-right: 1rem;
 `
 const ImgWrapper = styled.section``
 
