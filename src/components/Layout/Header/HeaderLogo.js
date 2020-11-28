@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useRef } from 'react'
 import styled from 'styled-components'
 
 import { ViewContext } from '../../../Store/ViewContext'
@@ -8,7 +8,11 @@ import useDevStyle from '../../../Utilities/Hooks/useDevStyle'
 import useMedia from "../../../Utilities/Hooks/useMedia"
 import getDevice from "../../../Utilities/getDevice"
 
+import CircleImage from '../Elements/CircleImage'
+
 import Logo from './Logo.svg'
+import will_wink from '../../Home/will_wink.png'
+
 
 const ComponentWrapper = styled.section`
     padding: .25rem;
@@ -51,10 +55,18 @@ export default function HeaderLogo() {
         [false,false,true],
         false
     )
+
+    const parentRef = useRef(null);
+
     return (
         <ComponentWrapper style={styleComponent}>
-            <LogoWrapper style={styleImage}>
-                <img src={Logo} />
+            <LogoWrapper style={styleImage} ref={parentRef}>
+                <CircleImage
+                    source={will_wink} 
+                    parent={parentRef}
+                    sizeDivisor={1}
+                    alt={'Will winking.'}
+                />
             </LogoWrapper>
             <LogoText style={styleText} display={isMobile ? "none" : "flex"}>
                willjohnston.tech 
