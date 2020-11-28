@@ -13,9 +13,10 @@ const ComponentWrapper = styled.section`
     justify-content: ${({justifyContent}) => justifyContent};
     align-items: center;
 `
-
 const Options = styled.section`
     display: flex;
+    flex-direction: ${({flexDir}) => flexDir};
+    justify-content: ${({justifyContent}) => justifyContent};
     align-items: center;
     margin: .5rem;
     margin-right: 1rem;
@@ -43,14 +44,25 @@ export default function Nav() {
     const isMobile = useMedia(
         [getDevice('browser'),getDevice('tablet'),getDevice('mobile')],
         [false,false,true],
-        "false"
+        false
+    )
+    const isTablet = useMedia(
+        [getDevice('browser'),getDevice('tablet'),getDevice('mobile')],
+        [false,true,false],
+        false
     )
 
     return (
-        <ComponentWrapper style={wrapperStyle} justifyContent={(isMobile ? "center" : "flex-end")}>
-            <Options style={optStyle}>
+        <ComponentWrapper 
+            style={wrapperStyle} 
+            justifyContent={(isMobile || isTablet ? "center" : "flex-end")}
+        >
+            <Options 
+                style={optStyle} 
+                flexDir={(isTablet ? "column" : "row")}
+                justifyContent={(isTablet ? "center" : "flex-end")}
+            >
                 {options.map((option,index) => {
-
                     const { view } = viewData;
                     const isActive = () => {
                         if(view === option){
@@ -59,7 +71,6 @@ export default function Nav() {
                             return false;
                         }
                     }
-
                     return (
                         <Option 
                             key={`NavOption-${index}`}

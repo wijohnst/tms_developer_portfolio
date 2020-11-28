@@ -14,8 +14,7 @@ const ComponentWrapper = styled.section`
 `
 const Head = styled.section``
 const ViewArea = styled.section`
-    flex-grow: 1;
-    overflow: scroll;
+    overflow: hidden;
     padding: .25rem;
 `
 const DevButton = styled.button`

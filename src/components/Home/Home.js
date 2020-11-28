@@ -1,4 +1,4 @@
-import React, { useRef, useContext } from 'react'
+import React, { useRef, useContext, useEffect } from 'react'
 import styled from 'styled-components'
 
 import { ViewContext } from '../../Store/ViewContext'
@@ -65,6 +65,9 @@ export default function Home() {
                         sizeDivisor={(isMobile ? .25 : .5)}
                         alt={'Toolbox.'}
                     />
+                </div>
+                <div style={{display: "flex", alignItems:"center", justifyContent: "center"}}>
+
                 </div>
             </Content>
         </ComponentWrapper>

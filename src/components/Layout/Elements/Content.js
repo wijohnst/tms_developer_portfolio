@@ -10,7 +10,7 @@ const ComponentWrapper = styled.div`
     width: 100%;
     margin: .5rem;
     margin-right: .75rem;
-    padding: .25rem;
+    /* padding: .25rem; */
     /* display: flex; */
 `
 
