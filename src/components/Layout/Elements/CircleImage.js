@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
-const ComponentWrapper = styled.section`
-    /* background-color: lightpink; */
-`
+const ComponentWrapper = styled.section``
+
 const Circle = styled.div`
     /* display: inline-flex; */
     clip-path: circle(50% at 50% 50%);
     max-width: ${({maxWidth}) => maxWidth};
-    background-color: white;
+    background-color: ${({backgroundColor})=> backgroundColor};
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,7 +19,8 @@ export default function CircleImage(props) {
         source, 
         parent,
         sizeDivisor,
-        alt
+        alt,
+        backgroundColor
      } = props;
 
     const [imgHeight, setImageHeight] = useState('0px');
@@ -35,7 +35,10 @@ export default function CircleImage(props) {
     
     return (
         <ComponentWrapper>
-            <Circle maxWidth={`${imgHeight}px`}>
+            <Circle 
+                maxWidth={`${imgHeight}px`}
+                backgroundColor={backgroundColor || 'white'}
+            >
                 <img 
                     src={source} 
                     height={imgHeight}
