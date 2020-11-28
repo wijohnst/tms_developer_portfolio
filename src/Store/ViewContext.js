@@ -9,7 +9,7 @@ let reducer = (viewData, newViewData) =>{
 }
 
 const initialState = {
-    isDev : true,
+    isDev : false,
     view : 'Home'
 }
 
