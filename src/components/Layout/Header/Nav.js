@@ -18,8 +18,8 @@ const Options = styled.section`
     flex-direction: ${({flexDir}) => flexDir};
     justify-content: ${({justifyContent}) => justifyContent};
     align-items: center;
-    margin: .5rem;
-    margin-right: 1rem;
+    /* margin: .5rem; */
+    margin-right: .75rem;
     padding: .25rem;
 `
 const Option = styled.span`
@@ -37,7 +37,7 @@ export default function Nav() {
     const { viewData ,setViewData } = useContext(ViewContext);
 
     const wrapperStyle = useDevStyle(viewData.isDev, "dashed","green");
-    const optStyle = useDevStyle(viewData.isDev,"dotted thin","blue");
+    const optStyle = useDevStyle(viewData.isDev,"dotted thin","red");
     
     const options = ['Home','Components','Projects'];
 

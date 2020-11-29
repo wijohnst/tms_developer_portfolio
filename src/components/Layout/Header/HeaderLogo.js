@@ -10,12 +10,10 @@ import getDevice from "../../../Utilities/getDevice"
 
 import CircleImage from '../Elements/CircleImage'
 
-import Logo from './Logo.svg'
 import will_wink from '../../Home/will_wink.png'
 
-
 const ComponentWrapper = styled.section`
-    padding: .25rem;
+    /* padding: .25rem; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,8 +26,8 @@ const LogoWrapper = styled.div`
     justify-content: center;
     align-items: center;
     flex-grow: 1;
-    padding: .25rem;
-    margin: .5rem;
+    /* padding: .25rem; */
+    margin: .75rem;
 `
 const LogoText = styled.div`
     height: 100px;
@@ -47,8 +45,8 @@ export default function HeaderLogo() {
     const { viewData } = useContext(ViewContext);
 
     const styleComponent = useDevStyle(viewData.isDev,"dashed","blue");
-    const styleImage = useDevStyle(viewData.isDev,"dotted thin","grey");
-    const styleText = useDevStyle(viewData.isDev,"dotted thin","orange");
+    const styleImage = useDevStyle(viewData.isDev,"dotted thin","red");
+    const styleText = useDevStyle(viewData.isDev,"dotted thin","red");
 
     const isMobile = useMedia(
         [getDevice('browser'),getDevice('tablet'),getDevice('mobile')],

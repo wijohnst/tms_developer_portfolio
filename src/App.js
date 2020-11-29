@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { ViewProvider } from './Store/ViewContext'
 
 import Layout from './components/Layout/Layout'
