@@ -4,9 +4,9 @@ import styled from 'styled-components'
 import useDevStyle from '../../../Utilities/Hooks/useDevStyle'
 
 const ComponentWrapper = styled.div`
-    /* max-width: 60ch; */
-    /* padding: .5rem; */
-    /* margin: .5rem; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
 
 export default function TextContent(props) {

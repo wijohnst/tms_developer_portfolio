@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
+
+import { ViewContext } from '../../../Store/ViewContext'
 
 import useMedia from '../../../Utilities/Hooks/useMedia'
 import getDevice from '../../../Utilities/getDevice'
@@ -11,10 +13,12 @@ import Nav from './Nav'
 const ComponentWrapper = styled.section`
     display: flex;
     flex-direction: ${({flexDirection}) => flexDirection};
-    border: solid thin white;
+    border: ${({border}) => border};
 `
 
 export default function Header() {
+
+    const { viewData } = useContext(ViewContext);
     
     const flexDir = useMedia(
         [getDevice('browser'),getDevice('tablet'),getDevice('mobile')],
@@ -25,6 +29,7 @@ export default function Header() {
     return (
         <ComponentWrapper 
             flexDirection={flexDir}
+            border={(viewData.isDev ? "none" : "solid thin white")}
         >
             <HeaderLogo />
             <MobileHeaderText /> {/* Mobile header is only visible on mobile */}
