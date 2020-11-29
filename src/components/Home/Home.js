@@ -1,14 +1,8 @@
-import React, { useRef, useContext, useEffect } from 'react'
+import React, { useRef, useContext } from 'react'
 import styled from 'styled-components'
 
 import { ViewContext } from '../../Store/ViewContext'
 
-import useMedia from '../../Utilities/Hooks/useMedia'
-import getDevice from '../../Utilities/getDevice'
-
-import will_wink from './will_wink.png'
-import tools from './tools.png'
-import CircleImage from '../Layout/Elements/CircleImage'
 import Content from '../Layout/Elements/Content'
 import TextContent from '../Layout/Elements/TextContent'
 import HeroText from '../Layout/Elements/HeroText'
@@ -36,22 +30,6 @@ export default function Home() {
     const parentRef = useRef(null);
 
     const { viewData } = useContext(ViewContext);
-
-    const isMobile = useMedia(
-        [getDevice('browser'),getDevice('tablet'),getDevice('mobile')],
-        [false,false,true],
-        false
-    )
-    const divisor = useMedia(
-        [getDevice('browser'),getDevice('tablet'),getDevice('mobile')],
-        [.5,.35,.25],
-        .5
-    )
-
-    const browserPosition = {
-        position: 'relative',
-        bottom: '100pt'
-    }
 
     return (
         <ComponentWrapper ref={parentRef}>

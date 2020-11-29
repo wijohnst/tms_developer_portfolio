@@ -12,7 +12,6 @@ const Circle = styled.div`
     justify-content: center;
     align-items: center;
 `
-
 export default function CircleImage(props) {
 
     const { 
@@ -31,7 +30,7 @@ export default function CircleImage(props) {
         }else{
             console.log("ERROR: Parent is too small to display <CircleImage />.")
         }
-    },[parent])
+    },[parent,sizeDivisor])
     
     return (
         <ComponentWrapper>

@@ -1,5 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react'
-import styled from 'styled-components'
+import { useContext, useState, useEffect } from 'react'
 import { ViewContext } from '../../Store/ViewContext'
 
 import Views from './Views'

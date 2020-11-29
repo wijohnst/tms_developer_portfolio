@@ -23,12 +23,12 @@ export default function TextContent(props) {
         switch (contentSide) {
             case "left":
                 return {
-                    borderLeft : "solid thin #808080",
+                    borderLeft : "solid thin white",
                     marginLeft : ".5rem"
                 }
             case "right":
                 return {
-                    borderRight : "solid thin #808080",
+                    borderRight : "solid thin white",
                     marginRight : ".5rem"
                 }
             default:

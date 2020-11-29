@@ -25,7 +25,7 @@ export default function useMedia(queries, values, defaultValue) {
         mediaQueryLists.forEach(mql => mql.addListener(handler));
         // Remove listeners on cleanup
         return () => mediaQueryLists.forEach(mql => mql.removeListener(handler));
-      },
+      },//eslint-disable-next-line
       [] // Empty array ensures effect is only run on mount and unmount
     );
   
