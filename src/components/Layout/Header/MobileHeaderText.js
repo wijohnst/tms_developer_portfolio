@@ -11,11 +11,13 @@ const ComponentWrapper = styled.div`
     display: ${({display}) => display};
     justify-content: center;
     align-items: center;
-    padding: .25rem;
+    /* padding: .25rem; */
 `
 const HeaderText = styled.span`
-    font-size: 1.25rem;
+    font-size: 1rem;
     font-weight: 700;
+    width: 8rem;
+    margin-right: .3rem;
 `
 
 export default function MobileHeaderText() {
@@ -23,6 +25,7 @@ export default function MobileHeaderText() {
     const { viewData } = useContext(ViewContext);
 
     const compStyle = useDevStyle(viewData.isDev,"dashed","purple");
+    const textStyle = useDevStyle(viewData.isDev,"dotted thin","red");
 
     const isMobile = useMedia(
         [getDevice('browser'),getDevice('tablet'),getDevice('mobile')],
@@ -32,7 +35,7 @@ export default function MobileHeaderText() {
 
     return (
         <ComponentWrapper style={compStyle} display={(isMobile ? "flex" : "none")}>
-            <HeaderText>
+            <HeaderText style={textStyle}>
                 willjohnston.tech 
             </HeaderText>   
         </ComponentWrapper>

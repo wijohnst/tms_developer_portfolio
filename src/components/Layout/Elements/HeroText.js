@@ -8,8 +8,9 @@ import getDevice from '../../../Utilities/getDevice'
 
 const ComponentWrapper = styled.section`
     font-size: ${({fontSize}) => fontSize};
-    margin-left: 1rem;
-    margin-top: 1rem;
+    /* margin-left: 1rem; */
+    /* margin-top: 1rem; */
+    margin: 1rem;
     font-weight: 300;
 `
 

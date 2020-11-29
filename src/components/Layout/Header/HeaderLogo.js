@@ -13,30 +13,28 @@ import CircleImage from '../Elements/CircleImage'
 import will_wink from '../../Home/will_wink.png'
 
 const ComponentWrapper = styled.section`
-    /* padding: .25rem; */
     display: flex;
     justify-content: center;
     align-items: center;
 `
 
 const LogoWrapper = styled.div`
-    height: 100px;
-    min-width: 200px;
+    height: 9rem;
+    min-width: 13rem;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-grow: 1;
-    /* padding: .25rem; */
     margin: .75rem;
+    margin-right: 1rem;
 `
-const LogoText = styled.div`
-    height: 100px;
+const LogoText = styled.div` 
     display: ${({display}) => display};
     justify-content: center;
     align-items: center;
-    padding: .25rem;
-    margin: .5rem;
-    font-size: 1.5rem;
+    width: 15.75rem;
+    margin-right: 1rem;
+    font-size: 2rem;
     font-weight: 700;
 `
 

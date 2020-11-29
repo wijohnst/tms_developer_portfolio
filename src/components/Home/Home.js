@@ -10,7 +10,6 @@ import Tools from './Tools'
 
 const ComponentWrapper = styled.section`
     height: 100%;
-    min-height: 400px;
     display: flex;
 `
 const BioWrapper = styled.section``

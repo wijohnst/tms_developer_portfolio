@@ -20,7 +20,6 @@ import vs_logo from './Tools/vs_logo.png'
 const ComponentWrapper = styled.section`
     min-height: ${({minHeight}) => minHeight};
     width: 100%;  
-    padding-right: 1rem;
 `
 const ToolBar = styled.section`
     display: flex;
@@ -34,6 +33,7 @@ const ImgWrapper = styled.div`
         justify-content: center;
         align-items: center;
         position: relative;
+        margin-right: .25rem;
         bottom: 1rem;
         font-weight: ${({fontWeight}) => fontWeight};
         font-size: ${({fontSize}) => fontSize};
@@ -45,12 +45,13 @@ const ImgWrapper = styled.div`
 const ToolDetail = styled.section`
     position: relative;
     bottom: ${({bottom}) => bottom};
+    margin-left: ${({marginLeft}) => marginLeft};
 `
 
 export default function Tools() {
 
     const { viewData, setViewData } = useContext(ViewContext);
-    const [ activeArr, updateActive ] = useIsActive([false,false,false,false]); //State for ToolBar
+    const [ activeArr, updateActive ] = useIsActive([true,false,false,false]); //State for ToolBar
 
     const compStyle = useDevStyle(viewData.isDev,"dotted thin", "blue");
     const toolBarStyle = useDevStyle(viewData.isDev, "dotted thin", "coral");
@@ -72,9 +73,10 @@ export default function Tools() {
         <ComponentWrapper 
             style={compStyle} 
             ref={parentRef}
-            minHeight={(isMobile ? '200px' : '300px')}
+            minHeight={(isMobile ? '175pt' : '200pt')}
         >   
-            <ToolBar style={toolBarStyle}>
+            {/* <ToolBar style={toolBarStyle}> */}
+            <ToolBar>
                 <ImgWrapper 
                     onClick={() => updateActive(0)} role={'button'}
                     color={(activeArr[0] ? "white" : "black")}
@@ -88,15 +90,6 @@ export default function Tools() {
                         alt={'React Logo.'}
                         backgroundColor={activeArr[0] ? "white" : "black"}
                     />
-                    {/* <ToggleIcon 
-                        icon={faAmbulance}
-                        iconSize={'4x'}
-                        isActive={activeArr[0]}
-                        colors={{active : "white", inactive : "black"}}
-                        clipPath={getClipPath('circle')}
-                        parent={parentRef}
-                        sizeDivisor={.5}
-                    /> */}
                 </ImgWrapper>
                 <ImgWrapper 
                     onClick={() => updateActive(1)} role={'button'}
@@ -143,7 +136,8 @@ export default function Tools() {
             </ToolBar>
             <ToolDetail 
                 style={toolBarStyle}
-               bottom={(isMobile ? "1.25rem" : "1.35rem")}
+                bottom={(isMobile ? "1.25rem" : "1.35rem")}
+                // marginLeft={(isMobile ? "2rem" : "4rem")}
             >
                 <ToolDetailRouter />
             </ToolDetail>   

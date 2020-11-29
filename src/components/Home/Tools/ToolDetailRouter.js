@@ -12,14 +12,14 @@ import CodeDetail from './CodeDetail'
 
 const ComponentWrapper = styled.section`
     display: ${({display}) => display};
-    border: solid thin white;
+    border-top: ${({border}) => border};
 `
 
 export default function ToolDetailRouter() {
 
     const { viewData } = useContext(ViewContext);
 
-    const compStyle = useDevState(viewData.isDev,"dotted thin","lightpink");
+    const compStyle = useDevState(viewData.isDev,"dotte","lightpink");
 
     const hasSelection = () => {
         if(viewData.toolsIsActive){
@@ -28,7 +28,7 @@ export default function ToolDetailRouter() {
     }
 
     const detailComponents = [ <ReactDetail />,<NodeDetail />,<FigmaDetail />,<CodeDetail />];
-    
+
     const target = () => {
         if(viewData.toolsIsActive){
             return viewData.toolsIsActive.indexOf(true)
@@ -39,6 +39,7 @@ export default function ToolDetailRouter() {
         <ComponentWrapper 
             style={compStyle}
             display={(hasSelection() ? "flex" : "none")}
+            border={(viewData.isDev ? "none" : "solid thin white")}
         >
             {detailComponents[target()]}
         </ComponentWrapper>

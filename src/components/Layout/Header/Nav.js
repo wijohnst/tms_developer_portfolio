@@ -18,14 +18,14 @@ const Options = styled.section`
     flex-direction: ${({flexDir}) => flexDir};
     justify-content: ${({justifyContent}) => justifyContent};
     align-items: center;
-    /* margin: .5rem; */
-    margin-right: .75rem;
-    padding: .25rem;
+    width: ${({width}) => width};
+    margin-top: ${({marginTop}) => marginTop};
+    margin-right: ${({marginRight}) => marginRight};
 `
 const Option = styled.span`
     font-size: ${({fontSize}) => fontSize};
     color: ${({color}) => color};
-    margin: .5rem;
+    /* margin: 1rem; */
     &:hover{
         cursor: pointer;
     }
@@ -60,7 +60,10 @@ export default function Nav() {
             <Options 
                 style={optStyle} 
                 flexDir={(isTablet ? "column" : "row")}
-                justifyContent={(isTablet ? "center" : "flex-end")}
+                justifyContent={(isTablet ? "center" : "space-between")}
+                width={(isTablet ? "100%" : "18rem")}
+                marginRight={(isMobile || isTablet ? "none" : "3rem")}
+                marginTop={(isMobile ? "1rem" : "none")}
             >
                 {options.map((option,index) => {
                     const { view } = viewData;
