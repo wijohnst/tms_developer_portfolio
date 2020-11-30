@@ -12,7 +12,7 @@ const ComponentWrapper = styled.div`
 export default function Projects() {
     return (
         <ComponentWrapper>
-            Projects
+            
         </ComponentWrapper>
     )
 }

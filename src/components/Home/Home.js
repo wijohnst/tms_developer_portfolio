@@ -36,7 +36,7 @@ export default function Home() {
                 <BioWrapper style={{display: "flex", alignItems: "center"}}>
                     <TextContent 
                         isDev={viewData.isDev}
-                        contentSide={"left"}
+                        // contentSide={"left"}
                     >
                         <HeroText>
                             I'm Will and I make simple, scalable web applications.
@@ -46,7 +46,7 @@ export default function Home() {
                 <FavsWrapper>
                     <TextContent
                         isDev={viewData.isDev}
-                        contentSide={"left"}
+                        // contentSide={"left"}
                     >
                         <HeroText>
                             These are some of my favorite tools.
