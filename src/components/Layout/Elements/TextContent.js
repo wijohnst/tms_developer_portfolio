@@ -5,8 +5,9 @@ import useDevStyle from '../../../Utilities/Hooks/useDevStyle'
 
 const ComponentWrapper = styled.div`
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
 `
 
 export default function TextContent(props) {
@@ -32,7 +33,7 @@ export default function TextContent(props) {
                     marginRight : ".5rem"
                 }
             default:
-                break;
+               return {}
         }
     }
     

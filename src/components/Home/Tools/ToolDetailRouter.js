@@ -11,15 +11,20 @@ import FigmaDetail from './FigmaDetail'
 import CodeDetail from './CodeDetail'
 
 const ComponentWrapper = styled.section`
+    display: flex;
+    flex-direction: column;
+    /* opacity: ${({opacity}) => opacity}; */
     display: ${({display}) => display};
     border-top: ${({border}) => border};
+    /* position: relative; */
+    /* overflow: hidden; */
 `
 
 export default function ToolDetailRouter() {
 
     const { viewData } = useContext(ViewContext);
 
-    const compStyle = useDevState(viewData.isDev,"dotte","lightpink");
+    const compStyle = useDevState(viewData.isDev,"dotted thin","white");
 
     const hasSelection = () => {
         if(viewData.toolsIsActive){
@@ -38,8 +43,9 @@ export default function ToolDetailRouter() {
     return (
         <ComponentWrapper 
             style={compStyle}
-            display={(hasSelection() ? "flex" : "none")}
-            border={(viewData.isDev ? "none" : "solid thin white")}
+            display={(hasSelection() ? "flex" : "hidden")}
+            // opacity={(hasSelection() ? 100 : 0)}
+            border={(!viewData.isDev && hasSelection() ? "solid thin white" : "none")}
         >
             {detailComponents[target()]}
         </ComponentWrapper>

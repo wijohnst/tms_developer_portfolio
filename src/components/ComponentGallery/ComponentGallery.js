@@ -12,7 +12,7 @@ const ComponentWrapper = styled.div`
 export default function ComponentGallery() {
     return (
         <ComponentWrapper>
-            Component Gallery
+            
         </ComponentWrapper>
     )
 }

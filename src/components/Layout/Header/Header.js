@@ -15,7 +15,6 @@ const ComponentWrapper = styled.section`
     flex-direction: ${({flexDirection}) => flexDirection};
     border: ${({border}) => border};
 `
-
 export default function Header() {
 
     const { viewData } = useContext(ViewContext);
@@ -29,7 +28,7 @@ export default function Header() {
     return (
         <ComponentWrapper 
             flexDirection={flexDir}
-            border={(viewData.isDev ? "none" : "solid thin white")}
+            border={(viewData.isDev ? "none" : "solid white")}
         >
             <HeaderLogo />
             <MobileHeaderText /> {/* Mobile header is only visible on mobile */}

@@ -55,6 +55,7 @@ export default function Tools() {
 
     const compStyle = useDevStyle(viewData.isDev,"dotted thin", "blue");
     const toolBarStyle = useDevStyle(viewData.isDev, "dotted thin", "coral");
+    const toolDetailStyle = useDevStyle(viewData.isDev, "dotted thin", "purple");
     const parentRef = useRef(null); //Used to calculate Tool icon size in <CircleImage />
 
     const isMobile = useMedia(
@@ -135,7 +136,7 @@ export default function Tools() {
                 </ImgWrapper>
             </ToolBar>
             <ToolDetail 
-                style={toolBarStyle}
+                style={toolDetailStyle}
                 bottom={(isMobile ? "1.25rem" : "1.35rem")}
                 // marginLeft={(isMobile ? "2rem" : "4rem")}
             >
