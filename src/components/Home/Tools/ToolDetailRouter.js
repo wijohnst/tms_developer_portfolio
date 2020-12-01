@@ -1,5 +1,6 @@
 import React, { useContext }from 'react'
 import styled from 'styled-components'
+import { useTransition, animated } from 'react-spring'
 
 import { ViewContext } from '../../../Store/ViewContext'
 
@@ -13,11 +14,13 @@ import CodeDetail from './CodeDetail'
 const ComponentWrapper = styled.section`
     display: flex;
     flex-direction: column;
-    /* opacity: ${({opacity}) => opacity}; */
-    display: ${({display}) => display};
     border-top: ${({border}) => border};
-    /* position: relative; */
-    /* overflow: hidden; */
+    min-height: 8rem;
+`
+const ViewWrapper = styled(animated.section)`
+    /* background-color: lightpink; */
+    position: absolute;
+    width: 100%;
 `
 
 export default function ToolDetailRouter() {
@@ -40,14 +43,22 @@ export default function ToolDetailRouter() {
         }
     };
 
+    const transitions = useTransition(target(), (v) => v, {
+        from: { opacity: 0, transform: "translate3d(0%,100%,0)" },
+        enter: { opacity: 1, transform: "translate3d(0%,0,0)" },
+        leave: { opacity: 0, transform: "translate3d(-50%,0,0)" }
+      });
+
     return (
         <ComponentWrapper 
             style={compStyle}
-            display={(hasSelection() ? "flex" : "hidden")}
-            // opacity={(hasSelection() ? 100 : 0)}
+            display={(hasSelection() ? "flex" : "none")}
             border={(!viewData.isDev && hasSelection() ? "solid thin white" : "none")}
         >
-            {detailComponents[target()]}
+            {transitions.map(({item, props, key}) =>{
+                const View = detailComponents[item]
+                return <ViewWrapper style={props} key={key}>{View}</ViewWrapper>
+            })}
         </ComponentWrapper>
     )
 }

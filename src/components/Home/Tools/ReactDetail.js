@@ -1,47 +1,42 @@
 import React, { useContext }from 'react'
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
+import { useTransition, animated } from 'react-spring'
 
 import { ViewContext } from '../../../Store/ViewContext'
 
 import useIsDev from '../../../Utilities/Hooks/useDevStyle'
-import TextContent from '../../Layout/Elements/TextContent'
-import HeroText from '../../Layout/Elements/HeroText'
-import List from '../../Layout/Elements/List'
+import SkillsHeader from '../../Layout/Elements/SkillsHeader'
+import SkillBar from '../../Layout/Elements/SkillBar'
 
-const ComponentWrapper = styled.section`
+const ComponentWrapper = styled(animated.section)`
     margin: 1rem;
     display: flex;
     width: 100%;
     flex-direction: column;
 `
+
 export default function ReactDetail() {
 
     const { viewData } = useContext(ViewContext)
-
     const compStyle = useIsDev(viewData.isDev,"dotted thin", "orange");
 
     return (
-        <ComponentWrapper style={compStyle}>
-            <TextContent
-                isDev={viewData.isDev}
-            >
-                <HeroText>
-                    React.js
-                </HeroText>
-            </TextContent>
-            <TextContent
-                isDev={viewData.isDev}
-            >
-                <List
-                    flexDirection={'row'}
-                >
-                    <li>ES6 Syntax</li>
-                    <li>styled-components</li>
-                    <li>Hooks</li>
-                    <li>Context API</li>
-
-                </List>
-            </TextContent>
+        <ComponentWrapper 
+            style={compStyle}
+        >
+            <SkillsHeader 
+                firstLabel={'Skill Name'}
+                secondLabel={'Skill Level'}
+            />
+            <SkillBar 
+                skillName={'Hooks'}
+                skillLevel={[true,true,true,true,false]}
+            />
+            <SkillBar 
+                skillName={'ES6'}
+                skillLevel={[true,true,true,true,true]}
+            />
         </ComponentWrapper>
-    )
-}
+     )
+    }
+        
