@@ -1,5 +1,6 @@
-import React, { useContext }from 'react'
-import styled, { keyframes } from 'styled-components'
+import React, { useContext, useState }from 'react'
+import styled from 'styled-components'
+import { useTransition, animated } from 'react-spring'
 
 import { ViewContext } from '../../../Store/ViewContext'
 
@@ -8,7 +9,7 @@ import TextContent from '../../Layout/Elements/TextContent'
 import HeroText from '../../Layout/Elements/HeroText'
 import List from '../../Layout/Elements/List'
 
-const ComponentWrapper = styled.section`
+const ComponentWrapper = styled(animated.section)`
     margin: 1rem;
     display: flex;
     width: 100%;
@@ -17,11 +18,12 @@ const ComponentWrapper = styled.section`
 export default function ReactDetail() {
 
     const { viewData } = useContext(ViewContext)
-
     const compStyle = useIsDev(viewData.isDev,"dotted thin", "orange");
 
     return (
-        <ComponentWrapper style={compStyle}>
+        <ComponentWrapper 
+            style={compStyle}
+        >
             <TextContent
                 isDev={viewData.isDev}
             >
@@ -43,5 +45,6 @@ export default function ReactDetail() {
                 </List>
             </TextContent>
         </ComponentWrapper>
-    )
-}
+     )
+    }
+        
