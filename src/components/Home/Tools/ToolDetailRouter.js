@@ -52,7 +52,7 @@ export default function ToolDetailRouter() {
     return (
         <ComponentWrapper 
             style={compStyle}
-            display={(hasSelection() ? "flex" : "hidden")}
+            display={(hasSelection() ? "flex" : "none")}
             border={(!viewData.isDev && hasSelection() ? "solid thin white" : "none")}
         >
             {transitions.map(({item, props, key}) =>{

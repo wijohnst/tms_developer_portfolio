@@ -76,7 +76,6 @@ export default function Tools() {
             ref={parentRef}
             minHeight={(isMobile ? '175pt' : '200pt')}
         >   
-            {/* <ToolBar style={toolBarStyle}> */}
             <ToolBar>
                 <ImgWrapper 
                     onClick={() => updateActive(0)} role={'button'}
