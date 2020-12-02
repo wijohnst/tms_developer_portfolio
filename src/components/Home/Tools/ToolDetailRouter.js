@@ -14,11 +14,11 @@ import CodeDetail from './CodeDetail'
 const ComponentWrapper = styled.section`
     display: flex;
     flex-direction: column;
+    height: 100%;
     border-top: ${({border}) => border};
     min-height: 8rem;
 `
 const ViewWrapper = styled(animated.section)`
-    /* background-color: lightpink; */
     position: absolute;
     width: 100%;
 `
@@ -51,13 +51,12 @@ export default function ToolDetailRouter() {
 
     return (
         <ComponentWrapper 
-            style={compStyle}
             display={(hasSelection() ? "flex" : "none")}
             border={(!viewData.isDev && hasSelection() ? "solid thin white" : "none")}
         >
             {transitions.map(({item, props, key}) =>{
                 const View = detailComponents[item]
-                return <ViewWrapper style={props} key={key}>{View}</ViewWrapper>
+                return <ViewWrapper style={(viewData.isDev ? compStyle : props)} key={key}>{View}</ViewWrapper>
             })}
         </ComponentWrapper>
     )

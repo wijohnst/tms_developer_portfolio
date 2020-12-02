@@ -11,7 +11,7 @@ import SkillBar from '../../Layout/Elements/SkillBar'
 const ComponentWrapper = styled(animated.section)`
     margin: 1rem;
     display: flex;
-    width: 100%;
+    /* width: 100%; */
     flex-direction: column;
 `
 
@@ -34,6 +34,10 @@ export default function ReactDetail() {
             />
             <SkillBar 
                 skillName={'ES6'}
+                skillLevel={[true,true,true,true,true]}
+            />
+            <SkillBar 
+                skillName={'Styled Components / CSS-in-JS'}
                 skillLevel={[true,true,true,true,true]}
             />
         </ComponentWrapper>

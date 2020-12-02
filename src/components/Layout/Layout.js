@@ -11,20 +11,18 @@ import getDevice from '../../Utilities/getDevice'
 import { Boxes } from './Elements/Patterns'
 import Header from './Header/Header'
 
-const ComponentWrapper = styled.section`
-    display: flex;
-    flex-direction: column;
-`
+const ComponentWrapper = styled.section``
 const Head = styled.section``
 const ViewArea = styled.section`
-    overflow: hidden;
-    position: relative;
-    bottom: .75rem;
-    background-color: ${({backgroundColor}) => backgroundColor};
+    display: flex;
+    flex-direction: column;
+    /* height: 100vh; */
+    overflow: scroll;
 `
 const DevButton = styled.button`
     max-width: fit-content;
     margin-top: 1rem;
+    z-index: 1000;
 `
 export default function Layout(props) {
 
@@ -40,18 +38,19 @@ export default function Layout(props) {
         false
     )
 
-    const viewStyle = useDevStyle(viewData.isDev,"dashed","orange",[false,true,true,true]);
+    const compStyle = useDevStyle(viewData.isDev, "dashed", 'green')
+    const viewStyle = useDevStyle(viewData.isDev,"dotted thin","orange");
     
     return (
-        <ComponentWrapper style={(viewData.isDev ? Boxes : {})}>
+        <ComponentWrapper style={(viewData.isDev ? {...compStyle, ...Boxes} : {})}>
             <Head>
                 <Header />
             </Head>
             <ViewArea 
                 style={viewStyle}
-                
             >
-                {props.children}
+                {/* ViewController */}
+                {props.children} 
             </ViewArea>
             <DevButton onClick={() => toggleIsDev()}>Toggle Dev Mode</DevButton>
         </ComponentWrapper>
