@@ -8,8 +8,10 @@ import useMedia from '../../../Utilities/Hooks/useMedia'
 import getDevice from '../../../Utilities/getDevice'
 
 const ComponentWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    /* width: 100%; */
     height: 100%;
-    width: 100%;
     margin: .75rem;
     margin-right: ${({marginRight}) => marginRight};
 `

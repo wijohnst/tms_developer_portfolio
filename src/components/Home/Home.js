@@ -11,6 +11,7 @@ import Tools from './Tools'
 const ComponentWrapper = styled.section`
     height: 100%;
     display: flex;
+    flex-direction: column;
 `
 const BioWrapper = styled.section``
 const FavsWrapper = styled.section`
