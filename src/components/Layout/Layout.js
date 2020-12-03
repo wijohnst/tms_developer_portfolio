@@ -12,7 +12,7 @@ import getClipPath from '../../Utilities/getClipPath'
 import { Boxes } from './Elements/Patterns'
 import Header from './Header/Header'
 
-const ComponentWrapper = styled.section``
+const ComponentWrapper = styled.section``    
 const Head = styled.section``
 const ViewArea = styled.section`
     display: flex;
@@ -48,7 +48,9 @@ export default function Layout(props) {
     const viewStyle = useDevStyle(viewData.isDev,"dotted thin","orange");
     
     return (
-        <ComponentWrapper style={(viewData.isDev ? {...compStyle, ...Boxes} : {})}>
+        <ComponentWrapper 
+            style={(viewData.isDev ? {...compStyle, ...Boxes} : {})}
+        >
         {/* <ComponentWrapper style={(viewData.isDev ? compStyle : null)}> */}
             <Head>
                 <Header />
