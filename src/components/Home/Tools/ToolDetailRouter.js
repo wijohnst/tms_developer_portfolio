@@ -35,7 +35,7 @@ export default function ToolDetailRouter() {
         }
     }
 
-    const detailComponents = [ <ReactDetail />,<ReactDetail />,<FigmaDetail />,<CodeDetail />];
+    const detailComponents = [ <ReactDetail />,<NodeDetail />,<FigmaDetail />,<CodeDetail />];
 
     const target = () => {
         if(viewData.toolsIsActive){
