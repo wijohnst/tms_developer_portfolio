@@ -35,7 +35,7 @@ export default function ToolDetailRouter() {
         }
     }
 
-    const detailComponents = [ <ReactDetail />,<NodeDetail />,<FigmaDetail />,<CodeDetail />];
+    const detailComponents = [ <ReactDetail />,<ReactDetail />,<FigmaDetail />,<CodeDetail />];
 
     const target = () => {
         if(viewData.toolsIsActive){
@@ -45,18 +45,18 @@ export default function ToolDetailRouter() {
 
     const transitions = useTransition(target(), (v) => v, {
         from: { opacity: 0, transform: "translate3d(0%,100%,0)" },
-        enter: { opacity: 1, transform: "translate3d(0%,0,0)" },
-        leave: { opacity: 0, transform: "translate3d(-50%,0,0)" }
+        enter: { opacity: 1, transform: "translate3d(0%,0%,0)" },
+        leave: { opacity: 0, transform: "translate3d(-30%,0%,0)" }
       });
 
     return (
         <ComponentWrapper 
-            display={(hasSelection() ? "flex" : "none")}
+            display={(hasSelection() ? "flex" : "hidden")}
             border={(!viewData.isDev && hasSelection() ? "solid thin white" : "none")}
         >
             {transitions.map(({item, props, key}) =>{
                 const View = detailComponents[item]
-                return <ViewWrapper style={(viewData.isDev ? compStyle : props)} key={key}>{View}</ViewWrapper>
+                return <ViewWrapper style={(viewData.isDev ? compStyle : props)} key={key} >{View}</ViewWrapper>
             })}
         </ComponentWrapper>
     )

@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
+import getClipPath  from '../../../Utilities/getClipPath'
+
 const ComponentWrapper = styled.section``
 
 const Circle = styled.div`
-    /* display: inline-flex; */
-    clip-path: circle(50% at 50% 50%);
+    clip-path: ${({clipPath}) => clipPath}; 
     max-width: ${({maxWidth}) => maxWidth};
     background-color: ${({backgroundColor})=> backgroundColor};
     display: flex;
     justify-content: center;
     align-items: center;
+    border: ${({border}) => border};
 `
 export default function CircleImage(props) {
 
@@ -19,7 +21,8 @@ export default function CircleImage(props) {
         parent,
         sizeDivisor,
         alt,
-        backgroundColor
+        backgroundColor,
+        isDev
      } = props;
 
     const [imgHeight, setImageHeight] = useState('0px');
@@ -36,7 +39,9 @@ export default function CircleImage(props) {
         <ComponentWrapper>
             <Circle 
                 maxWidth={`${imgHeight}px`}
-                backgroundColor={backgroundColor || 'white'}
+                backgroundColor={(isDev ? "none" : backgroundColor || 'white')}
+                clipPath={(isDev ? "none" : getClipPath('circle'))}
+                border={(isDev ? "dotted thin green" : "none")}
             >
                 <img 
                     src={source} 

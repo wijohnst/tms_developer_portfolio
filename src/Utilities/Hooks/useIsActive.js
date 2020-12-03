@@ -7,7 +7,8 @@ export default function useIsActive(defaultArr){
     function updateActive(target){
         
         const updatedArr = activeArr.map((val,index) => {
-            if(target === index && val !== true){ 
+            // if(target === index && val !== true){ 
+            if(target === index){ 
                 return true;
             }else{
                 return false;

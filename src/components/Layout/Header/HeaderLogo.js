@@ -62,6 +62,8 @@ export default function HeaderLogo() {
                     parent={parentRef}
                     sizeDivisor={1}
                     alt={'Will winking.'}
+                    backgroundColor={'white'}
+                    isDev={viewData.isDev}
                 />
             </LogoWrapper>
             <LogoText style={styleText} display={isMobile ? "none" : "flex"}>
