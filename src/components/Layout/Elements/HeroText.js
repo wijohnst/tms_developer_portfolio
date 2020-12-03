@@ -23,7 +23,7 @@ export default function HeroText(props) {
     const compStyle = useDevStyle(viewData.isDev,"dotted thin", "coral");
     const fontSize = useMedia(
         [getDevice('browser'),getDevice('tablet'),getDevice('mobile')],
-        ["2rem","1.75rem","1rem"],
+        ["2rem","1.75rem","2rem"],
         "2rem"
     )
 

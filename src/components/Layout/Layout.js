@@ -7,6 +7,7 @@ import useDevStyle from '../../Utilities/Hooks/useDevStyle'
 import useMedia from '../../Utilities/Hooks/useMedia'
 
 import getDevice from '../../Utilities/getDevice'
+import getClipPath from '../../Utilities/getClipPath'
 
 import { Boxes } from './Elements/Patterns'
 import Header from './Header/Header'
@@ -16,13 +17,18 @@ const Head = styled.section``
 const ViewArea = styled.section`
     display: flex;
     flex-direction: column;
-    /* height: 100vh; */
-    overflow: scroll;
+    
 `
 const DevButton = styled.button`
-    max-width: fit-content;
-    margin-top: 1rem;
-    z-index: 1000;
+    z-index: 2000;
+    margin-right: 1.25rem;
+    margin-bottom: 1rem;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    &:hover{
+        cursor: pointer;
+    }
 `
 export default function Layout(props) {
 
@@ -38,11 +44,12 @@ export default function Layout(props) {
         false
     )
 
-    const compStyle = useDevStyle(viewData.isDev, "dashed", 'green')
+    const compStyle = useDevStyle(viewData.isDev, "dashed", 'red')
     const viewStyle = useDevStyle(viewData.isDev,"dotted thin","orange");
     
     return (
         <ComponentWrapper style={(viewData.isDev ? {...compStyle, ...Boxes} : {})}>
+        {/* <ComponentWrapper style={(viewData.isDev ? compStyle : null)}> */}
             <Head>
                 <Header />
             </Head>
@@ -52,7 +59,7 @@ export default function Layout(props) {
                 {/* ViewController */}
                 {props.children} 
             </ViewArea>
-            <DevButton onClick={() => toggleIsDev()}>Toggle Dev Mode</DevButton>
+            <DevButton onClick={() => toggleIsDev()}>DEV MODE</DevButton>
         </ComponentWrapper>
     ) 
 }

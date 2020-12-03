@@ -24,9 +24,15 @@ const ComponentWrapper = styled.section`
 const ToolBar = styled.section`
     display: flex;
     justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: ${({backgroundColor}) => backgroundColor};
+    margin-bottom: .5rem;
+    /* border: dotted lightpink; */
 `
 const ImgWrapper = styled.div`
-    &:after{
+    /* &:after{
         content: "|";
         color:  ${({color}) => color};
         display: flex;
@@ -40,7 +46,7 @@ const ImgWrapper = styled.div`
     }
     &:hover{
         cursor: pointer;
-    }
+    } */
 `
 const ToolDetail = styled.section`
     position: relative;
@@ -74,6 +80,7 @@ export default function Tools() {
         <ComponentWrapper 
             ref={parentRef}
             minHeight={(isMobile ? '175pt' : '200pt')}
+            backgroundColor={(viewData.isDev ? "none" : "black")}
         >   
             <ToolBar>
                 <ImgWrapper 
@@ -88,6 +95,7 @@ export default function Tools() {
                         sizeDivisor={(isMobile ? .25 : .5)}
                         alt={'React Logo.'}
                         backgroundColor={activeArr[0] ? "white" : "black"}
+                        isDev={viewData.isDev}
                     />
                 </ImgWrapper>
                 <ImgWrapper 
@@ -102,6 +110,7 @@ export default function Tools() {
                         sizeDivisor={(isMobile ? .25 : .5)}
                         alt={'Node Logo.'}
                         backgroundColor={activeArr[1] ? "white" : "black"}
+                        isDev={viewData.isDev}
                     />
                 </ImgWrapper>
                 <ImgWrapper 
@@ -116,6 +125,7 @@ export default function Tools() {
                         sizeDivisor={(isMobile ? .25 : .5)}
                         alt={'Figma Logo.'}
                         backgroundColor={activeArr[2] ? "white" : "black"}
+                        isDev={viewData.isDev}
                     />
                 </ImgWrapper>
                 <ImgWrapper 
@@ -130,11 +140,12 @@ export default function Tools() {
                         sizeDivisor={(isMobile ? .25 : .5)}
                         alt={'Visual Studio Code Logo.'}
                         backgroundColor={activeArr[3] ? "white" : "black"}
+                        isDev={viewData.isDev}
                     />
                 </ImgWrapper>
             </ToolBar>
             <ToolDetail 
-                bottom={(isMobile ? "1.25rem" : "1.35rem")}
+                bottom={(isMobile ? "0rem" : "0rem")}
             >
                 <ToolDetailRouter />
             </ToolDetail>   
