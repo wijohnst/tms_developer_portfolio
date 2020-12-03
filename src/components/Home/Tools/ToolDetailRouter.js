@@ -54,10 +54,11 @@ export default function ToolDetailRouter() {
             display={(hasSelection() ? "flex" : "hidden")}
             border={(!viewData.isDev && hasSelection() ? "solid thin white" : "none")}
         >
-            {transitions.map(({item, props, key}) =>{
+            {(viewData.isDev ? detailComponents[target()] :
+            transitions.map(({item, props, key}) =>{
                 const View = detailComponents[item]
                 return <ViewWrapper style={(viewData.isDev ? compStyle : props)} key={key} >{View}</ViewWrapper>
-            })}
+            }))}
         </ComponentWrapper>
     )
 }
